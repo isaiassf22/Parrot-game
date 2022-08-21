@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+body{
+    box-sizing: border-box;
+    /* 1 rem equivalendo a 10 px*/
+    font-size: 62.5%;
+    background-color: rgb(219, 255, 164);
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+header{
+    margin-top: 3%;
+    width: 70vw;
+    height: auto;
+}
+header .tittle{
+    margin: 5%  0% 2% 0%;
+    text-align: center;
+    font-size: 5.6rem;
+    color: #75B79E;
+   
+}
+main{
+    width: 65vw;
+}
+main .cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    perspective: 1000px;    
+}
+main .single-card{
+    width: 95px;
+    height: 110px;
+    cursor: pointer;
+    margin: 2%;
+    position: relative;
+    background-color: #A7E9AF;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s; 
+}
+main .single-card.rotate{
+    transform: rotateY(180deg);
+}
+.single-card:active{
+    transform: scale(.97);
+    transition: transform .2s;
+}
+main .bird{
+    width:85% ;
+    height: 95%;
+}
+main .bird.hidden{
+    visibility: hidden;
+}
+main .single-card .front-card{
+    position: absolute;
+    width:85%;
+    height: 95%;
+    visibility: hidden;
+}
+main .single-card .front-card.visible{
+    visibility: visible;
+}
+
+
+main .click{
+    display: none;
+}
+
