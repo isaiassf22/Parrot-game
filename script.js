@@ -4,10 +4,9 @@ let firstcard,secondcard;
 let avoidbug =false // evita o bug de virar várias cartas enquanto o settimeout não executa
 let novoarranjo=''
 let m=document.querySelectorAll('.single-card')
-console.log(m[1])
 let lista=[m[0].dataset.image,m[1].dataset.image,m[2].dataset.image,m[3].dataset.image,m[4].dataset.image,m[5].dataset.image,m[6].dataset.image,m[7].dataset.image,m[8].dataset.image,m[9].dataset.image,m[10].dataset.image,m[11].dataset.image,m[12].dataset.image,m[13].dataset.image]
 console.log(lista)
-
+let cliques =0
 
 function howmanycards(){
     let play=Number(prompt('Com quantas cartas deseja jogar?'))
@@ -29,7 +28,6 @@ function howmanycards(){
 }
 setTimeout(howmanycards,1000)
 
-
 function clicked(x){
     if (avoidbug) return;
     //x= parametro da funcao(this)
@@ -38,6 +36,8 @@ function clicked(x){
     x.classList.add('rotate')
     let b=x.childNodes[3]
     b.classList.add('visible')
+    cliques+=1 //contar o numero de cliques
+    let p=document.querySelector('.contador')
     if(!hasflippedcard){
         //primeiro clique
         hasflippedcard=true
@@ -68,5 +68,14 @@ function clicked(x){
         }
 
     }
-   
+    setTimeout(final,1000)
+   }
+
+function final(){
+    let container=document.querySelectorAll('.single-card')
+   let abertas=document.querySelectorAll('.rotate')
+   if(container.length==abertas.length){
+    alert(`Você ganhou em ${cliques} jogadas!`) 
+   }
 }
+
