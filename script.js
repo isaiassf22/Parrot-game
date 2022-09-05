@@ -75,7 +75,7 @@ function final(){
     let container=document.querySelectorAll('.single-card')
    let abertas=document.querySelectorAll('.rotate')
    if(container.length==abertas.length){
-    alert(`Você ganhou em ${cliques} jogadas!`) 
+    alert(`Você ganhou em ${cliques/2} jogadas!`) 
    }
 }
 
